@@ -3,10 +3,10 @@
 
 int main(void)
 {
-    // Solicitar o número do cartão de crédito
+    // Request credit card number
     long card_number = get_long("Número: ");
 
-    // Verificar o comprimento do número do cartão
+    // Check the length of the card number
     int length = 0;
     long temp = card_number;
     while (temp != 0)
@@ -15,11 +15,11 @@ int main(void)
         length++;
     }
 
-    // Verificar os dígitos iniciais para determinar o tipo de cartão
+    // Check leading digits to determine card type
     int first_two_digits = (int) (card_number / 1e12);
     int first_digit = (int) (card_number / 1e13);
 
-    // Verificar a validade do número do cartão usando o algoritmo de Luhn
+    // Check leading digits to determine card type
     int sum = 0;
     int digit_count = 1;
     while (card_number != 0)
@@ -40,7 +40,7 @@ int main(void)
         digit_count++;
     }
 
-    // Verificar o tipo de cartão e imprimir o resultado
+    // Check the card type and print the result
     if (sum % 10 == 0)
     {
         if ((length == 15 && (first_two_digits == 34 || first_two_digits == 37)))
