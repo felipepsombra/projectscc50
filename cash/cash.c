@@ -1,84 +1,62 @@
 #include <stdio.h>
-#include <cs50.h>
-#include <string.h>
-
-bool is_valid_checksum(const char *card_number);
-string get_card_brand(const char *card_number);
+#include <stdlib.h>
+#include <math.h>
 
 int main(void)
 {
-    string card_number = get_string("Number: ");
+    float change;
+    int cents, coins = 0;
 
-    if (is_valid_checksum(card_number))
+    // Prompts the user for the amount owed until it is numeric and not negative
+    do
     {
-        string card_brand = get_card_brand(card_number);
-        printf("%s\n", card_brand);
+        printf("Troca devida: ");
+        if (scanf("%f", &change) != 1)
+        {
+            printf("Valor inválido. Tente novamente.\n");
+            while (getchar() != '\n');  // Limpa o buffer de entrada
+        }
+        else if (change < 0)
+        {
+            printf("Valor não pode ser negativo. Tente novamente.\n");
+        }
+        else
+        {
+            break;
+        }
     }
-    else
+    while (1);
+
+    // Converts exchange value from dollars to cents
+    cents = round(change * 100);
+
+    // Calculates the minimum number of coins needed
+    while (cents >= 25)
     {
-        printf("INVALID\n");
+        cents -= 25;
+        coins++;
     }
+
+    while (cents >= 10)
+    {
+        cents -= 10;
+        coins++;
+    }
+
+    while (cents >= 5)
+    {
+        cents -= 5;
+        coins++;
+    }
+
+    while (cents >= 1)
+    {
+        cents -= 1;
+        coins++;
+    }
+
+    // prints the result
+    printf("%d\n", coins);
 
     return 0;
-}
-
-// Check if the checksum of the card number is valid
-bool is_valid_checksum(const char *card_number)
-{
-    int length = strlen(card_number);
-    int sum = 0;
-    bool multiply = false;
-
-    // Iterate through the card number digits from right to left
-    for (int i = length - 1; i >= 0; i--)
-    {
-        int digit = card_number[i] - '0';
-
-        if (multiply)
-        {
-            digit *= 2;
-
-            // If the doubled digit is greater than 9, add its digits separately
-            if (digit > 9)
-            {
-                digit = digit % 10 + digit / 10;
-            }
-        }
-
-        sum += digit;
-        multiply = !multiply;
-    }
-
-    // The card number is valid if the sum is divisible by 10
-    return sum % 10 == 0;
-}
-
-// Determine the brand of the card based on the card number format
-string get_card_brand(const char *card_number)
-{
-    int length = strlen(card_number);
-
-    if ((length == 13 || length == 16) && card_number[0] == '4')
-    {
-        return "VISA";
-    }
-    else if (length == 16)
-    {
-        int prefix = (card_number[0] - '0') * 10 + (card_number[1] - '0');
-        if (prefix >= 51 && prefix <= 55)
-        {
-            return "MASTERCARD";
-        }
-    }
-    else if (length == 15)
-    {
-        int prefix = (card_number[0] - '0') * 10 + (card_number[1] - '0');
-        if (prefix == 34 || prefix == 37)
-        {
-            return "AMEX";
-        }
-    }
-
-    // If none of the conditions match, the card number is invalid
-    return "INVALID";
 }
