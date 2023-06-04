@@ -1,0 +1,11 @@
+1. Ask user for height size.
+2. As long as height size is less than 1 or greater than 8 (or not integer), repeat:
+2.1. Prompt the user again for a positive integer between 1 and 8, inclusive.
+3. For each value of i from 1 to the height size, do:
+3.1. Print 'spaces' to align the pyramid to the right:
+3.1.1. For each value of j from 1 to (height size - i), do:
+3.1.1.1. Print a blank.
+3.2. Print the '#':
+3.2.1. For each value of k from 1 to i, do:
+3.2.1.1. Print '#'.
+3.3. Print a line break.
