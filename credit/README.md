@@ -29,6 +29,3 @@ The is_valid_checksum function implements the Luhn algorithm to validate the car
 
 License:
 This program is released under the MIT License.
-
-
-Now you can view the README in the preview and it should be properly displayed.
