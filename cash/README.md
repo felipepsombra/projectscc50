@@ -17,7 +17,7 @@ Exchange due: 4.97
 
 The program calculates that it takes 19 coins to make change for $4.97.
 
-Implementation Details
+Implementation Details:
 The program is implemented in C and follows these steps:
 
 Prompt the user for the amount owed until it is a numeric value and not negative.
@@ -25,7 +25,6 @@ Convert the amount owed from dollars to cents.
 Calculate the minimum number of coins needed by subtracting the largest possible coin value (quarters) repeatedly until the remaining amount is less than the coin value. Repeat this process for each coin denomination (quarters, dimes, nickels, and pennies) in decreasing order.
 Print the minimum number of coins needed.
 Exit the program.
-License
-This program is released under the MIT License.
 
-You can copy and paste this code into your project's README file to see the preview.
+License:
+This program is released under the MIT License.
