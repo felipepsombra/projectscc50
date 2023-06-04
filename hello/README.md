@@ -27,5 +27,3 @@ Exit the program.
 
 License:
 This program is released under the MIT License
-
-Now you can view the README in the preview and it should be properly displayed.
