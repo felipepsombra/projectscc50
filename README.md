@@ -12,6 +12,7 @@ Each exercise is implemented in C and demonstrates my understanding of different
 - [Problem 4: Population growth](./population)
 - [Problem 5: Reading levels](./readability)
 - [Problem 6: Caesar cipher](./caesar)
+- [Problem 7: Substitution cipher](./substitution)
 
 ## Usage
 
