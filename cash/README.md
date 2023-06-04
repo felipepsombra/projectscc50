@@ -10,6 +10,8 @@ To run the program, compile and execute the code using a C compiler. The program
 gcc -o coins coins.c
 ./coins 
 ```
+## Example
+
 Example: Calculating the minimum number of coins needed for $4.97
 
 Exchange due: 4.97
@@ -17,7 +19,7 @@ Exchange due: 4.97
 
 The program calculates that it takes 19 coins to make change for $4.97.
 
-Implementation Details:
+## Implementation Details
 The program is implemented in C and follows these steps:
 
 Prompt the user for the amount owed until it is a numeric value and not negative.
@@ -26,5 +28,5 @@ Calculate the minimum number of coins needed by subtracting the largest possible
 Print the minimum number of coins needed.
 Exit the program.
 
-License:
+## License
 This program is released under the MIT License.
