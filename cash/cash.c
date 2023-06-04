@@ -10,15 +10,15 @@ int main(void)
     // Prompts the user for the amount owed until it is numeric and not negative
     do
     {
-        printf("Troca devida: ");
+        printf("Exchange due: ");
         if (scanf("%f", &change) != 1)
         {
-            printf("Valor inválido. Tente novamente.\n");
+            printf("Invalid value. Try again.\n");
             while (getchar() != '\n');  // Limpa o buffer de entrada
         }
         else if (change < 0)
         {
-            printf("Valor não pode ser negativo. Tente novamente.\n");
+            printf("Value cannot be negative. Try again.\n");
         }
         else
         {
